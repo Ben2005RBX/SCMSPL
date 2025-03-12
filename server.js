@@ -21,6 +21,7 @@ async function getCSRFToken() {
     if (!ROBLOSECURITY) {
         throw new Error("Roblox cookie not found in environment variables");
     }
+    console.log(ROBLOSECURITY);
 
     const response = await fetch("https://www.roproxy.com/home", {
         method: "GET",
@@ -35,7 +36,6 @@ async function getCSRFToken() {
     }
 
     const text = await response.text();
-
     // Regex to extract the CSRF token from the page HTML
     const csrfTokenMatch = text.match(/data-token="([^"]+)"/);
 
