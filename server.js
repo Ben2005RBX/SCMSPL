@@ -36,6 +36,7 @@ async function getCSRFToken() {
     }
 
     const text = await response.text();
+    console.log(text);
     // Regex to extract the CSRF token from the page HTML
     const csrfTokenMatch = text.match(/data-token="([^"]+)"/);
 
