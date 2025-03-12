@@ -13,7 +13,7 @@ app.get("/roblox", async (req, res) => {
   }
 
   try {
-    const response = await fetch("https://www.roblox.com/home", {
+    const response = await fetch("https://www.roproxy.com/home", {
       method: "GET",
       headers: {
         Cookie: `.ROBLOSECURITY=${ROBLOSECURITY}`,
