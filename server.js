@@ -7,7 +7,7 @@ const ROBLOSECURITY = process.env.ROBLOSECURITY;
 
 
 // Route to demonstrate using the Roblox cookie
-app.get("/roblox", async (req, res) => {
+app.get("/", async (req, res) => {
   if (!ROBLOSECURITY) {
     return res.status(500).json({ error: "Roblox cookie not found" });
   }
