@@ -1,10 +1,10 @@
 const express = require("express");
+const fetch = require("node-fetch"); // Import node-fetch
 const app = express();
 const port = process.env.PORT || 8080;
 
 // Access environment variables
 const ROBLOSECURITY = process.env.ROBLOSECURITY;
-
 
 // Route to demonstrate using the Roblox cookie
 app.get("/", async (req, res) => {
@@ -13,6 +13,7 @@ app.get("/", async (req, res) => {
   }
 
   try {
+    // Make an HTTP request to Roblox
     const response = await fetch("https://www.roproxy.com/home", {
       method: "GET",
       headers: {
@@ -21,13 +22,23 @@ app.get("/", async (req, res) => {
       },
     });
 
+    // Check if the response is OK
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    // Get the response text
     const text = await response.text();
-    res.send(text); // Return the response from Roblox
+
+    // Send the response back to the client
+    res.send(text);
   } catch (error) {
+    console.error("Error:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
