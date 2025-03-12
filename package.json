@@ -1,16 +1,14 @@
 {
-  "name": "render-express-deployment",
+  "name": "roblox-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js app to interact with Roblox",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.18.2",
+    "node-fetch": "^3.0.0"
   }
 }
